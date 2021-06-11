@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APlusAutoWatcher", "APlusAutoWatcher.csproj", "{6C820F98-39F4-4ED3-9BEC-E06FF0F08090}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APlusAutoWatcher.Tests", "..\APlusAutoWatcher.Tests\APlusAutoWatcher.Tests.csproj", "{99F156AC-B549-422A-A692-64F539B59561}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C820F98-39F4-4ED3-9BEC-E06FF0F08090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C820F98-39F4-4ED3-9BEC-E06FF0F08090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C820F98-39F4-4ED3-9BEC-E06FF0F08090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C820F98-39F4-4ED3-9BEC-E06FF0F08090}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99F156AC-B549-422A-A692-64F539B59561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F156AC-B549-422A-A692-64F539B59561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F156AC-B549-422A-A692-64F539B59561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F156AC-B549-422A-A692-64F539B59561}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F78D2169-8AE4-4818-93C7-0FC9AB0348FA}
+	EndGlobalSection
+EndGlobal
