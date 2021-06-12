@@ -11,11 +11,13 @@ Required to read mindless nonsense that would put a 2 year old on a crack bender
 ## To configure
 In the appsettings.json file fillout the following fields
 
-### UserName
-### Password
-### BaseUrl (with no trailing "/")
-### Path (variable url path)
-### Path2 (trailing constant)
-### EndPath
+#### UserName
+#### Password
+#### BaseUrl 
+#### Path 
+#### Path2 
+#### EndPath
 
-## Do not use trailing "/" at the end of BaseUrl, path, or path2
+Do not use trailing "/" at the end of BaseUrl, path, or path2
+
+### Thats it! Fire this baby up and enjoy your day free of lame videos, or boring ass content!
