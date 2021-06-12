@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RGZrLePoQpWJeonO31uha6hDPr1TC73Xb/M+Y4yGG7DR0An5Qczb7aNOVuGMtSzRYBb5Y8RhBx7TqnOj/+oa6w==",
+  "dgSpecHash": "ubwoZrouKTEqXpr9a0xTP4n0bfnyEgYZ7TwiwzToiarVmIxSnzOnJjZNGDMUEO4yFxzmSicn/L5ce5iU2oH8zQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\wbrat\\source\\repos\\AutoWatcher\\APlusAutoWatcher.Tests\\APlusAutoWatcher.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wbrat\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
+    "C:\\Users\\wbrat\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\wbrat\\.nuget\\packages\\htmlagilitypack\\1.11.34\\htmlagilitypack.1.11.34.nupkg.sha512",
     "C:\\Users\\wbrat\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",

@@ -51,10 +51,7 @@ C:\Users\wbrat\source\repos\APlusAutoWatcher\bin\Debug\net5.0\appsettings.Produc
 C:\Users\wbrat\source\repos\APlusAutoWatcher\bin\Debug\net5.0\appsettings.Test.json
 C:\Users\wbrat\source\repos\APlusAutoWatcher\bin\Debug\net5.0\WebDriver.Support.dll
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\APlusAutoWatcher.exe
-C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\appsettings.Debug.json
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\appsettings.json
-C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\appsettings.Production.json
-C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\appsettings.Test.json
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\APlusAutoWatcher.deps.json
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\APlusAutoWatcher.runtimeconfig.json
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\APlusAutoWatcher.runtimeconfig.dev.json
@@ -102,3 +99,4 @@ C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\obj\Debug\net5.0\APlusA
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\obj\Debug\net5.0\ref\APlusAutoWatcher.dll
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\obj\Debug\net5.0\APlusAutoWatcher.pdb
 C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\obj\Debug\net5.0\APlusAutoWatcher.genruntimeconfig.cache
+C:\Users\wbrat\source\repos\AutoWatcher\APlusAutoWatcher\bin\Debug\net5.0\SeleniumExtras.WaitHelpers.dll

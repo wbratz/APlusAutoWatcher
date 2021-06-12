@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CVsKuNMpZgPUUUfkJ1YoMBsDJJn917B0SFksPuPIx9uE0prI0/cABPlhGuIdcwifbYAewoF8WvrlGPnyJaLZjQ==",
+  "dgSpecHash": "6rTXaBubHbjf+PgYhkGyeYr5AQmQGbCB9lXWft3epqhXMBNOLqLJWv58h1pDHuC23CU7Z1hqDaCaK2HrB32JtA==",
   "success": true,
   "projectFilePath": "C:\\Users\\wbrat\\source\\repos\\AutoWatcher\\APlusAutoWatcher\\APlusAutoWatcher.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\wbrat\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\wbrat\\.nuget\\packages\\htmlagilitypack\\1.11.34\\htmlagilitypack.1.11.34.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\wbrat\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",
