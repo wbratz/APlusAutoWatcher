@@ -20,4 +20,4 @@ In the appsettings.json file fillout the following fields
 
 Do not use trailing "/" at the end of BaseUrl, path, or path2
 
-### Thats it! Fire this baby up and enjoy your day free of lame videos, or boring ass content!
+### Thats it! Fire this baby up and enjoy your day free of lame videos and boring ass content!
