@@ -1,6 +1,4 @@
-﻿using APlusAutoWatcher.Enums;
-using APlusAutoWatcher.Utilities.Contracts;
-using HtmlAgilityPack;
+﻿using APlusAutoWatcher.Utilities.Contracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using OpenQA.Selenium;
@@ -8,7 +6,6 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.IO;
-using System.Net.Http;
 using System.Reflection;
 using System.Threading;
 
@@ -33,7 +30,7 @@ namespace APlusAutoWatcher.Utilities.Implementations
             _logger.LogInformation("Web Scraper Initialized");
         }
 
-        public ChapterValues ParseWebPage(string version, string chapter, string uniqueId)
+        public string ParseWebPage(string version, string chapter, string uniqueId)
         {
             var requesturi = $"https://labsimapp.testout.com/{version}/index.html/productviewer/242/{chapter}/{uniqueId}";
 
@@ -41,7 +38,6 @@ namespace APlusAutoWatcher.Utilities.Implementations
                 .GoToUrl(requesturi);
 
             var login = By.Id("SignOn.login");
-
             var loginField = WaitForLoad(login);
 
             if (loginField != null)
@@ -61,43 +57,47 @@ namespace APlusAutoWatcher.Utilities.Implementations
 
             var moduleLoad = By.ClassName("ProductViewer-resourceTitle-outline");
 
-            var resourceOutline = WaitForLoad(moduleLoad);
-
-            try
+            while (chapter != "13.13.4")
             {
-                _driver.FindElementById("VideoViewer-playVideoLink").Click();
-                _logger.LogInformation("Video found, playing video");
-            }
-            catch (NoSuchElementException ex)
-            {
-                _logger.LogError($"Could not find video player, assuming {chapter}, does not contain video", ex.Message);
-            }
+                var resourceOutline = WaitForLoad(moduleLoad);
 
-            //var pageSource = _driver.PageSource;
+                // To ensure javascript has fully loaded text into the element
+                // Prevents receiving a blank element.
+                Thread.Sleep(5000);
+                chapter = resourceOutline.Text;
 
-            //var pageDocument = new HtmlDocument();
-            //pageDocument.LoadHtml(pageSource);
-
-            var title = _driver.FindElementByClassName("ProductViewer-resourceTitle");
-
-            Thread.Sleep(30000);
-            _logger.LogInformation($"Waiting 30 seconds");
-
-            if (IsEndOfSection(title))
-            {
-                _logger.LogInformation("Practice Test detected in {Chapter}", chapter);
-                if (IsEndOfChapter(chapter, version, uniqueId))
+                try
                 {
-                    _logger.LogInformation("End of chapter reached");
-                    return ChapterValues.Chapter;
+                    // To ensure video player is fully loaded
+                    // Prevents unclickable link error
+                    Thread.Sleep(5000);
+
+                    _driver.FindElementById("VideoViewer-playVideoLink").Click();
+                    _logger.LogInformation("Video found, playing video");
+                }
+                catch (NoSuchElementException ex)
+                {
+                    _logger.LogError($"Could not find video player, assuming {resourceOutline.Text} does not contain video \r Error Message: {ex.Message}");
                 }
 
-                _logger.LogInformation("End of section reached");
-                return ChapterValues.Section;
+                var title = _driver.FindElementByClassName("ProductViewer-resourceTitle");
+
+                Thread.Sleep(30000);
+                _logger.LogInformation($"Waiting 30 seconds");
+
+                try
+                {
+                    var nextButton = _driver.FindElementById("ProductViewer-NavNextBtn");
+                    nextButton.Click();
+                }
+                catch (NoSuchElementException ex)
+                {
+                    _logger.LogError($"Could not find next button, exiting on error {ex.Message}");
+                    break;
+                }
             }
 
-            _logger.LogInformation("End of subsection reached");
-            return ChapterValues.Subsection;
+            return chapter;
         }
 
         private IWebElement WaitForLoad(By element)
@@ -112,31 +112,6 @@ namespace APlusAutoWatcher.Utilities.Implementations
                 _logger.LogError("Specified element is not found {Nse}, {Element}", nse.Message, element);
                 return null;
             }
-        }
-
-        private bool IsEndOfSection(IWebElement element)
-        {
-            return element.Text.Contains("Practice Questions");
-        }
-
-        private bool IsEndOfChapter(string chapter, string version, string uniqueId)
-        {
-            var chapterArray = chapter.Split(".");
-
-            var intValue = int.Parse(chapterArray[(int)ChapterValues.Section]);
-
-            intValue++;
-
-            chapterArray[(int)ChapterValues.Section] = intValue.ToString();
-
-            _driver.Navigate()
-                .GoToUrl($"https://labsimapp.testout.com/{version}/index.html/productviewer/242/{chapterArray[0]}.{chapterArray[1]}.{chapterArray[2]}/{uniqueId}");
-
-            var moduleLoad = By.ClassName("ProductViewer-resourceTitle-outline");
-
-            var secondHit = WaitForLoad(moduleLoad);
-
-            return secondHit.Text.Equals("1.1");
         }
     }
 }

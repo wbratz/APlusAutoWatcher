@@ -14,7 +14,6 @@ namespace APlusAutoWatcher
 {
     internal class Program
     {
-        public static ILoggerFactory LoggerFactory;
         public static IConfigurationRoot Configuration;
 
         private static void Main(string[] args)
@@ -77,7 +76,6 @@ namespace APlusAutoWatcher
         {
             serviceCollection.AddSingleton<IConfiguration>(Configuration);
             serviceCollection.AddSingleton<IScrapeWebpages, WebScraper>();
-            serviceCollection.AddSingleton<IGenerateChapterData, ChapterDataGenerator>();
             serviceCollection.AddSingleton<Application>();
         }
 
@@ -85,6 +83,7 @@ namespace APlusAutoWatcher
         {
             services.AddLogging(opt =>
             {
+                opt.ClearProviders();
                 opt.AddConsole();
             });
         }
@@ -93,31 +92,32 @@ namespace APlusAutoWatcher
         {
             private readonly ILogger<Application> _logger;
             private readonly IScrapeWebpages _scraper;
-            private readonly IGenerateChapterData _cdg;
 
-            public Application(ILogger<Application> logger, IScrapeWebpages scraper, IGenerateChapterData cdg)
+            public Application(ILogger<Application> logger, IScrapeWebpages scraper)
             {
                 _logger = logger;
                 _scraper = scraper;
-                _cdg = cdg;
             }
 
             public void Run()
             {
                 _logger.LogInformation("Starting Application..");
 
-                var chapter = "8.1.1";
+                var chapter = "6.1.1";
 
-                while (chapter != "13.13.4")
+                _logger.LogInformation($"Beginning {chapter}");
+                var exitChapter = _scraper.ParseWebPage("v6_0_452", chapter, "7cf470c9-1e7d-484f-94c0-ade588ca139c");
+
+                _logger.LogInformation($"Exited on {exitChapter}.");
+
+                if (exitChapter == "13.13.4")
                 {
-                    _logger.LogInformation($"Beginning {chapter}");
-                    var nextSection = _scraper.ParseWebPage("v6_0_452", chapter, "7cf470c9-1e7d-484f-94c0-ade588ca139c");
-
-                    _logger.LogInformation($"{chapter} Finished");
-                    chapter = _cdg.GetNextChapter(chapter, nextSection);
+                    _logger.LogInformation($"Final Chapter Complete");
                 }
-
-                _logger.LogInformation($"Final Chapter Complete");
+                else
+                {
+                    _logger.LogInformation($"Program exited prematurely, check logs for error \r Last chapter read: {exitChapter}");
+                }
             }
         }
     }

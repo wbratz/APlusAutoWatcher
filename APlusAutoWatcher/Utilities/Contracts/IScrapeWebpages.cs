@@ -9,6 +9,6 @@ namespace APlusAutoWatcher.Utilities.Contracts
 {
     public interface IScrapeWebpages
     {
-        ChapterValues ParseWebPage(string version, string chapter, string uniqueId);
+        string ParseWebPage(string version, string chapter, string uniqueId);
     }
 }
